@@ -6,7 +6,8 @@ const AWS_CONFIG = {
     },
     api: {
         invokeUrl: 'https://1bb73f90n5.execute-api.ap-south-1.amazonaws.com/test'
-    }
+    },
+    videoBucket: 'test-turnthebus-upload',
 };
 
 export default AWS_CONFIG;

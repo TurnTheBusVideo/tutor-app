@@ -1,5 +1,6 @@
 import { Col, Form } from 'react-bootstrap';
 import React from 'react';
+import { cosh } from 'core-js/fn/number';
 
 export const toUsername = (email) => {
     return email.replace('@', '-at-');
@@ -58,9 +59,9 @@ export const controlSwitch = ({
         case 'file':
             return (
                 <Form.File 
-                    id="custom-file"
-                    label="Custom file input"
-                    custom
+                    {...controlProps}
+                    // custom
+                    required={required}
                 />
             )
         default:
@@ -81,12 +82,15 @@ export const FormikControl = ({
     selectFrom,
     helpText,
     learnMore,
+    touched,
+    errors,
     ...controlProps
 }) => {
     const formGroupProps = {};
     if(horizontal) {
         formGroupProps['as'] = Col;
     }
+    // console.debug(controlProps ? controlProps.name : 'non', errors);
     return (
         <Form.Group controlId={id} {...formGroupProps}>
                 <Form.Label>{displayName}</Form.Label>
@@ -97,6 +101,15 @@ export const FormikControl = ({
                     required,
                     selectFrom,
                 })}
+                {
+                    errors &&
+                    errors[controlProps.name] 
+                    ? (
+                        <Form.Control.Feedback type="invalid">
+                            {errors[controlProps.name]}
+                        </Form.Control.Feedback>
+                    ) : ''
+                }
                 <Form.Text muted>
                     {typeof helpText === 'function' ? helpText() : (helpText || '')}
                     {learnMore ? (
@@ -121,7 +134,7 @@ export const FormikFile = (props) => {
     )
 }
 
-export const renderControl = (fieldData, index, values, handleChange) => {
+export const renderControl = (fieldData, index, values, handleChange, validationProps) => {
     const {
         type,
         fieldName,
@@ -133,6 +146,7 @@ export const renderControl = (fieldData, index, values, handleChange) => {
         && formFieldId
         && type
         ? (<FormikControl
+            {...validationProps}
             {...other}
             key={`${formFieldId}-${index}`}
             controlType={type}
@@ -167,17 +181,18 @@ export const renderSelect = (fieldData, index, formikValues, handleChange, horiz
         />) : 'Error rendering select field.');
 }
 
-export const renderFile = (fieldData, index, formikValues, handleChange) => {
+export const renderFile = (fieldData, index, formikValues, handleChange, validationProps) => {
     const {
         fieldName,
         formFieldId,
         ...other
     } = fieldData;
-
+    // console.debug('renderFile', fieldName, validationProps);
     return (
         fieldName
         && formFieldId
         ? (<FormikFile
+            {...validationProps}
             {...other}
             key={`${formFieldId}-${index}`}
             displayName={fieldName}
@@ -190,7 +205,13 @@ export const renderFile = (fieldData, index, formikValues, handleChange) => {
     )
 }
 
-export const renderFields = (fields, values, handleChange, horizontal) => {
+export const renderFields = ({
+    fields,
+    handleChange,
+    horizontal = false,
+    values,
+    ...other
+}) => {
     if(fields?.length) {
         return fields.map((fieldData, index) => {
             switch(fieldData?.type) {
@@ -204,15 +225,39 @@ export const renderFields = (fields, values, handleChange, horizontal) => {
                     return renderFile({
                         horizontal,
                         ...fieldData
-                    }, index, values, handleChange)
+                    }, index, values, handleChange, other)
                 }
                 default:
                     return renderControl({
                         horizontal,
-                        ...fieldData
-                    }, index, values, handleChange)
+                        ...fieldData,
+                    }, index, values, handleChange, other)
             }
         });
     }
     return 'No Fields to render.'
+}
+
+export const formatTime = (seconds) => {
+    let mill = seconds * 1000;
+    let hoursRemaining = (Math.floor(mill / 1000 / 60 / 60)) % 24;
+    let minutesRemaining = (Math.floor(mill / 1000 / 60)) % 60;
+    let secondsRemaining = (Math.floor(mill / 1000)) % 60;
+    let timeAr = []
+    if (hoursRemaining > 0) {
+        timeAr.push(`${hoursRemaining} hours`);
+    }
+    if (minutesRemaining > 0) {
+        timeAr.push(`${minutesRemaining} minutes`);
+    }
+    if (secondsRemaining > 0) {
+        timeAr.push(`${secondsRemaining} seconds`);
+    }
+    return timeAr.length ? timeAr.join(', ') + ' remaining' : '';
+}
+
+export const formatBytes = (a, b = 2) => {
+    if (0 === a) return "0 Bytes";
+    const c = 0 > b ? 0 : b, d = Math.floor(Math.log(a) / Math.log(1024));
+    return parseFloat((a / Math.pow(1024, d)).toFixed(c)) + " " + ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"][d];
 }

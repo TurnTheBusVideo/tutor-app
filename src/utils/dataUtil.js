@@ -1,12 +1,14 @@
 import AWS_CONFIG from "../config/awsConfig";
 import sessionManager from "./sessionManager";
 
+const NO_AUTH_MSG = 'No auth token';
+
 export const request = async ({fetchUrlObj, method = 'GET', body, tableName = ''}) => {
     return new Promise((resolve, reject) => {
         const authToken = sessionManager.getAuthToken();
         const userName = sessionManager.getUsername();
         if (!authToken) {
-            console.error('No auth token');
+            console.error(NO_AUTH_MSG);
             reject({});
         }
 
@@ -97,4 +99,51 @@ export const getCloudData = ({
     }, (reason) => {
         defeat(reason)
     });
+}
+
+export const getResponse = ({
+    pre = () => {},
+    resource = 'getsignedurl',
+    dataValues,
+    validator,
+    victory,
+    defeat,
+}) => {
+    try{
+        pre();
+        const authToken = sessionManager.getAuthToken();
+        if (!authToken) {
+            console.error(NO_AUTH_MSG);
+            defeat(NO_AUTH_MSG);
+        }
+        const url = new URL(`${AWS_CONFIG.api.invokeUrl}/${resource}`);
+        url.searchParams.append('bucket', AWS_CONFIG.videoBucket);
+        Object.keys(dataValues).forEach((objectKey) => {
+            url.searchParams.append(objectKey, dataValues[objectKey]);
+        });
+        fetch(
+            url,
+            {
+                crossdomain: true,
+                contentType: 'application/json',
+                dataType: 'json',
+                headers: new Headers({
+                    'Authorization': authToken
+                }),
+            }
+        )
+        .then(response => response.json())
+        .then(
+            (response) => {
+                if(validator(response)){
+                    victory(response);
+                } else {
+                    defeat(response);
+                }
+            }
+        )
+    } catch (e) {
+        console.error('Error getting video upload URL!');
+        defeat(e);
+    }
 }
