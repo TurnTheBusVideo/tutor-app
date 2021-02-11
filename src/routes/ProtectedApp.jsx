@@ -11,6 +11,7 @@ import { ToastProvider } from 'react-toast-notifications';
 import { TTBLogo } from '../components/shared/TTBLogo';
 import sessionManager from '../utils/sessionManager';
 import UploadPage from './UploadPage';
+import HistoryPage from './HistoryPage';
 
 function ProtectedApp({ userData }) {
     const location = useLocation();
@@ -50,6 +51,7 @@ function ProtectedApp({ userData }) {
                                         <>
                                             <Nav.Link className={location.pathname === '/upload' ? 'active-top-route' : ''} href="/upload">Upload</Nav.Link>
                                             <Nav.Link className={location.pathname === '/history' ? 'active-top-route' : ''} href="/history">History</Nav.Link>
+                                           
                                             {/* <Nav.Item className='nav-link'>
                                                 <NavLink activeClassName="active-top-route" to="/upload" >Upload</NavLink>
                                             </Nav.Item >
@@ -108,7 +110,7 @@ const ProtectedAppBody = ({ userData }) => {
                     <UploadPage />
                 </Route>
                 <Route path="/history">
-                    <p>history</p>
+                    <HistoryPage />
                 </Route>
             </Switch>
         </main>
