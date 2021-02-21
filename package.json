@@ -13,7 +13,10 @@
     "history": "^4.10.1",
     "js-cookie": "^2.2.1",
     "react": "^16.13.1",
-    "react-bootstrap": "^1.0.1",
+    "react-bootstrap": "^1.4.3",
+    "react-bootstrap-table-next": "^4.0.3",
+    "react-bootstrap-table2-filter": "^1.3.3",
+    "react-bootstrap-table2-paginator": "^2.1.2",
     "react-copy-to-clipboard": "^5.0.2",
     "react-data-grid": "^7.0.0-canary.16",
     "react-dom": "^16.13.1",
@@ -28,12 +31,18 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "clean:cache": "rimraf .cache-loader node_modules/.cache .next"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
     ]
   },
   "browserslist": {
@@ -47,5 +56,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "customize-cra": "^1.0.0",
+    "react-app-rewired": "^2.1.8",
+    "rimraf": "^3.0.2"
   }
 }

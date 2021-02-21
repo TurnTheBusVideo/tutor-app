@@ -191,7 +191,23 @@
 .App-link {
   color: #61dafb;
 }
+#historyTable
+{
+  margin-left: 48px;
+  margin-top: 49px;
+  width: 96%;
+  height: auto;
+  font-size: 15px;
+  margin-right: 105px;
 
+}
+
+.react-bootstrap-table-pagination
+{
+  margin-right: 21px;
+  margin-left: -203px;
+  margin-top: 30px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
