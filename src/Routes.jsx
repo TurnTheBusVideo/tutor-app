@@ -15,7 +15,7 @@ const Routes = () => {
     const [stickyEmail, setStickyEmail] = useState();
 
     return (
-        <Router >
+        <Router basename="/tutor-app">
             <Switch>
                 <Route exact path="/login" >
                     <LoginPage afterLogin={setUserData} />
