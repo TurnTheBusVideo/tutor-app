@@ -30,7 +30,7 @@ jobs:
           uses: oleksiyrudenko/gha-git-credentials@v2.1
           with:
             global: true
-            name: 'Tutor App CI'
+            name: 'sentient-butler'
             email: 'prasad.uw@gmail.com'
             token: '${{ secrets.SENTIENT_BUTLER_TOKEN }}'
       -
