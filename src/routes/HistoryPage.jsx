@@ -46,10 +46,10 @@ const defaultSorted = [{
 const options = {
   paginationSize: 5,
   pageStartIndex: 0,
-  firstPageText: '<<',
-  prePageText: 'Back',
-  nextPageText: '>',
-  lastPageText: '>>',
+  firstPageText: 'First page',
+  prePageText: 'Previous',
+  nextPageText: 'Next',
+  lastPageText: 'Last Page',
   showTotal: true,
   alwaysShowAllBtns: true,
 
