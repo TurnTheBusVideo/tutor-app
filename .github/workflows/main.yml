@@ -27,8 +27,8 @@ jobs:
       -
           name: Git Identity
           run: |
-              git config --global user.name 'TurnTheBusVideo'
-              git config --global user.email 'TurnTheBusVideo@TurnTheBusVideo.noreply.github.com'
+              git config --global user.name 'sentient-butler'
+              git config --global user.email 'prasad.uw@gmail.com'
       -
           name: Install dependencies
           run: npm i
