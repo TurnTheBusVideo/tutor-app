@@ -286,6 +286,14 @@ const {
                 touched,
                 values,
              }) => {
+                 const {
+                    chapterPart = '',
+                    chapterNumber = '',
+                    title = '',
+                    chapterName = '',
+                    bookName = '',
+                    class: classVal = ''
+                 } = values || {};
                  return (
                     <Form
                         validated={validated}
@@ -367,6 +375,29 @@ const {
                             })
                         }
                         <h2>Video Details</h2>
+                        {
+                            <Form.Group controlId="titlePreview">
+                                <Form.Label>Final Title Preview</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder={values
+                                        ? (
+                                            chapterPart + ' CH ' + chapterNumber + ' ' + 
+                                            title + ' ' + chapterName + ' ' + bookName + ' ' + classVal
+                                        ) : ''}
+                                    readOnly
+                                />
+                                <Form.Text className="text-muted">
+                                    This will be the final video title on YouTube and EdX.
+                                    It is a combination of form fields on this page.
+                                    A catchy title can help you hook
+                                    viewers. When you create video
+                                    titles, it’s a good idea to include keywords your audience is likely to use when looking for
+                                    videos like yours.
+                                    <a target="_blank" href="https://creatoracademy.youtube.com/page/lesson/titles">Learn more</a>
+                                </Form.Text>
+                            </Form.Group>
+                        }
                         {
                             renderFields({
                                 errors,
