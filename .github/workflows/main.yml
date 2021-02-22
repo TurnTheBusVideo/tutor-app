@@ -33,13 +33,13 @@ jobs:
             name: 'sentient-butler'
             email: 'prasad.uw@gmail.com'
             token: '${{ secrets.SENTIENT_BUTLER_TOKEN }}'
+#      -
+#        name: Check GitHub user
+#        run: git config --list
       -
-        name: Check GitHub user
-        run: git config --list
-#      -
-#          name: Install dependencies
-#          run: npm i
+          name: Install dependencies
+          run: npm i
       # Runs a single command using the runners shell
-#      -
-#          name: Deploy to gh-pages
-#          run: npm run deploy
+      -
+          name: Deploy to gh-pages
+          run: npm run deploy
