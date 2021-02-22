@@ -1,6 +1,5 @@
 import { Col, Form } from 'react-bootstrap';
 import React from 'react';
-import { cosh } from 'core-js/fn/number';
 
 export const toUsername = (email) => {
     return email.replace('@', '-at-');
@@ -21,7 +20,7 @@ export const renderOptions = (objs, value, display) => {
 
 export const toUniqueArray = (objArr, key) => {
     let arrayOfKeys = [];
-    let t = objArr?.forEach(obj => {
+    objArr.forEach(obj => {
         arrayOfKeys[obj[key]] = '';
     })
     return Object.keys(arrayOfKeys);
@@ -114,7 +113,7 @@ export const FormikControl = ({
                     {typeof helpText === 'function' ? helpText() : (helpText || '')}
                     {learnMore ? (
                         <>
-                            {` `}<a target="_blank" href={learnMore}>Learn more</a>
+                            {` `}<a target="_blank" rel="noopener noreferrer" href={learnMore}>Learn more</a>
                         </>
                     ): ''}
                 </Form.Text>

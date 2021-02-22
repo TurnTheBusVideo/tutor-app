@@ -6,7 +6,6 @@ const NO_AUTH_MSG = 'No auth token';
 export const request = async ({fetchUrlObj, method = 'GET', body, tableName = ''}) => {
     return new Promise((resolve, reject) => {
         const authToken = sessionManager.getAuthToken();
-        const userName = sessionManager.getUsername();
         if (!authToken) {
             console.error(NO_AUTH_MSG);
             reject({});

@@ -67,9 +67,11 @@ const VideoUploadForm = ({formData}) => {
 
     const firstUnique = (items, key) => toUniqueArray(items, key)[0];
 
+    /* eslint-disable react-hooks/exhaustive-deps */
     useEffect(() => {
         setDisplayedBooks(getSubjectORLanguageFilteredBooks(selectedSubject, selectedLanguage));
     }, [selectedSubject, selectedLanguage]);
+    /* eslint-enable react-hooks/exhaustive-deps */
 
 
 
@@ -394,7 +396,7 @@ const {
                                     viewers. When you create video
                                     titles, it’s a good idea to include keywords your audience is likely to use when looking for
                                     videos like yours.
-                                    <a target="_blank" href="https://creatoracademy.youtube.com/page/lesson/titles">Learn more</a>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://creatoracademy.youtube.com/page/lesson/titles">Learn more</a>
                                 </Form.Text>
                             </Form.Group>
                         }

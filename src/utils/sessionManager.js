@@ -4,7 +4,7 @@ const sessionManager = {
     setSession: (obj) => setSessionCookie(obj),
     getSessionProp: (propName, defaultPropValue = false) => sessionManager.isAuthenticated()
         ? (
-            Object.keys(sessionManager.getSession()).indexOf(propName) != -1
+            Object.keys(sessionManager.getSession()).indexOf(propName) !== -1
                 ? sessionManager.getSession()[propName]
                 : defaultPropValue
             )

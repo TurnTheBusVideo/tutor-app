@@ -1,3 +1,5 @@
+[![Tutor App CI](https://github.com/TurnTheBusVideo/tutor-app/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/TurnTheBusVideo/tutor-app/actions/workflows/main.yml)
+
 # tutor-app
 React app for uploading videos to Turn the Bus' content management. Similar to https://github.com/TurnTheBusVideo/video-upload-gui
 

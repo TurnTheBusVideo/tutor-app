@@ -28,7 +28,9 @@ const WelcomeBanner = () => {
                     <p className="lead">नमस्ते दोस्तों। टर्न द बस के साथ ऑनलाइन पढ़ाने के लिए धन्यवाद! कृपया इस फॉर्म का उपयोग अपने वीडियो का विवरण प्रस्तुत करने के लिए करें।</p>
                     <p className="lead">Namaste, friends. Thank you for teaching online with Turn the Bus! Please use this form to submit the details of your video.</p>
                     <p className="lead">
-                        <Button variant="link" href="https://www.turnthebus.org/" target="_blank">🌐 turnthebus.org</Button>
+                        <Button variant="link" href="https://www.turnthebus.org/" target="_blank">
+                        <span aria-hidden role="img">🌐</span>
+                            turnthebus.org</Button>
                     </p>
                 </>
             )}

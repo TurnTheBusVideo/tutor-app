@@ -1,10 +1,8 @@
 import { getCloudData } from '../utils/dataUtil';
-import * as ReactBootstrap from "react-bootstrap";
 import React, { useEffect, useState } from 'react';
 import SpinnerText from '../components/shared/SpinnerText';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
-import { render } from '@testing-library/react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 
@@ -15,18 +13,14 @@ const HistoryPage = () =>
   const [showFormError, setShowFormError] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [historyDataValue, setHistoryData] = useState([])
-   
-  var response;
 
-   
    useEffect(() => {
     getCloudData({
         pre: () => setFormLoading(true),
         tableName: 'UploadVideo',
         validator: (response) => response?.result?.Count >= 0,
         victory: (UploadVideo, textStatus, jqXHR) => {
-             response = UploadVideo.Items;
-             setHistoryData(response);
+             setHistoryData(UploadVideo.Items);
              setFormLoading(false);
              setShowForm(true);
          

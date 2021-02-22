@@ -1,11 +1,8 @@
 import React from 'react';
 import { Container, Row } from 'react-bootstrap';
 import Alert from 'react-bootstrap/Alert';
-import Button from 'react-bootstrap/Button';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { Link, NavLink, Redirect, Route, Switch, useLocation } from 'react-router-dom';
 import { ToastProvider } from 'react-toast-notifications';
 import { TTBLogo } from '../components/shared/TTBLogo';
