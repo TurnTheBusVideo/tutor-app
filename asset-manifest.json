@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/tutor-app/static/css/main.41650dbe.chunk.css",
-    "main.js": "/tutor-app/static/js/main.704e5ec9.chunk.js",
-    "main.js.map": "/tutor-app/static/js/main.704e5ec9.chunk.js.map",
+    "main.css": "/tutor-app/static/css/main.ed6f42ed.chunk.css",
+    "main.js": "/tutor-app/static/js/main.59069117.chunk.js",
+    "main.js.map": "/tutor-app/static/js/main.59069117.chunk.js.map",
     "runtime-main.js": "/tutor-app/static/js/runtime-main.d544c606.js",
     "runtime-main.js.map": "/tutor-app/static/js/runtime-main.d544c606.js.map",
-    "static/css/2.3bb776dd.chunk.css": "/tutor-app/static/css/2.3bb776dd.chunk.css",
-    "static/js/2.493f250b.chunk.js": "/tutor-app/static/js/2.493f250b.chunk.js",
-    "static/js/2.493f250b.chunk.js.map": "/tutor-app/static/js/2.493f250b.chunk.js.map",
+    "static/css/2.0deec441.chunk.css": "/tutor-app/static/css/2.0deec441.chunk.css",
+    "static/js/2.b7396f58.chunk.js": "/tutor-app/static/js/2.b7396f58.chunk.js",
+    "static/js/2.b7396f58.chunk.js.map": "/tutor-app/static/js/2.b7396f58.chunk.js.map",
     "index.html": "/tutor-app/index.html",
-    "precache-manifest.4e3bf3c3130d0ae00986ef89ea6b78a3.js": "/tutor-app/precache-manifest.4e3bf3c3130d0ae00986ef89ea6b78a3.js",
+    "precache-manifest.f81ecba04d6e7e4d36798805d6b015a6.js": "/tutor-app/precache-manifest.f81ecba04d6e7e4d36798805d6b015a6.js",
     "service-worker.js": "/tutor-app/service-worker.js",
-    "static/css/2.3bb776dd.chunk.css.map": "/tutor-app/static/css/2.3bb776dd.chunk.css.map",
-    "static/css/main.41650dbe.chunk.css.map": "/tutor-app/static/css/main.41650dbe.chunk.css.map",
-    "static/js/2.493f250b.chunk.js.LICENSE.txt": "/tutor-app/static/js/2.493f250b.chunk.js.LICENSE.txt",
+    "static/css/2.0deec441.chunk.css.map": "/tutor-app/static/css/2.0deec441.chunk.css.map",
+    "static/css/main.ed6f42ed.chunk.css.map": "/tutor-app/static/css/main.ed6f42ed.chunk.css.map",
+    "static/js/2.b7396f58.chunk.js.LICENSE.txt": "/tutor-app/static/js/2.b7396f58.chunk.js.LICENSE.txt",
     "static/media/App.css": "/tutor-app/static/media/jumbotron.8e43617a.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.d544c606.js",
-    "static/css/2.3bb776dd.chunk.css",
-    "static/js/2.493f250b.chunk.js",
-    "static/css/main.41650dbe.chunk.css",
-    "static/js/main.704e5ec9.chunk.js"
+    "static/css/2.0deec441.chunk.css",
+    "static/js/2.b7396f58.chunk.js",
+    "static/css/main.ed6f42ed.chunk.css",
+    "static/js/main.59069117.chunk.js"
   ]
 }
