@@ -43,6 +43,6 @@ jobs:
           env:
             GITHUB_TOKEN: ${{ secrets.SENTIENT_BUTLER_TOKEN }}
           run: |
-            git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+            git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/TurnTheBusVideo/tutor-app.git
             git remote show origin
 #            npm run deploy -- -u "sentient-butler <prasad.uw@gmail.com>"
