@@ -34,7 +34,7 @@ jobs:
 #      -
 #        name: Check GitHub user
 #        run: git config --list
-      -
+#      -
 #          name: Install dependencies
 #          run: npm i
       # Runs a single command using the runners shell
