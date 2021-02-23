@@ -7,8 +7,6 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -25,25 +23,26 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       -
         uses: actions/checkout@v2
-      -
-          name: Git Identity
-          uses: oleksiyrudenko/gha-git-credentials@v2.1
-          with:
-            global: true
-            name: 'sentient-butler'
-            email: 'prasad.uw@gmail.com'
-            token: '${{ secrets.SENTIENT_BUTLER_TOKEN }}'
+#      -
+#          name: Git Identity
+#          uses: oleksiyrudenko/gha-git-credentials@v2.1
+#          with:
+#            global: true
+#            name: 'sentient-butler'
+#            email: 'prasad.uw@gmail.com'
+#            token: '${{ secrets.SENTIENT_BUTLER_TOKEN }}'
 #      -
 #        name: Check GitHub user
 #        run: git config --list
       -
-          name: Install dependencies
-          run: npm i
+#          name: Install dependencies
+#          run: npm i
       # Runs a single command using the runners shell
       -
           name: Deploy to gh-pages
           env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            GITHUB_TOKEN: ${{ secrets.SENTIENT_BUTLER_TOKEN }}
           run: |
             git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-            npm run deploy -- -u "sentient-butler <prasad.uw@gmail.com>"
+            git remote show origin
+#            npm run deploy -- -u "sentient-butler <prasad.uw@gmail.com>"
