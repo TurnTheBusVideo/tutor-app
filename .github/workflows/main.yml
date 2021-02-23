@@ -40,8 +40,8 @@ jobs:
       # Runs a single command using the runners shell
       -
           name: Deploy to gh-pages
-          env:
-            GITHUB_TOKEN: ${{ secrets.SENTIENT_BUTLER_TOKEN }}
+#          env:
+#            GITHUB_TOKEN: ${{ secrets.SENTIENT_BUTLER_TOKEN }}
           run: |
-            git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
+            git remote set-url origin https://git:${{ github.token }}@github.com/${{ github.repository }}.git
             npm run deploy -- -u "sentient-butler <prasad.uw@gmail.com>"
