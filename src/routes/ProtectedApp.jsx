@@ -3,7 +3,7 @@ import { Container, Row } from 'react-bootstrap';
 import Alert from 'react-bootstrap/Alert';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link, NavLink, Redirect, Route, Switch, useLocation } from 'react-router-dom';
+import { Link, NavLink, Redirect, Route, Switch } from 'react-router-dom';
 import { ToastProvider } from 'react-toast-notifications';
 import { TTBLogo } from '../components/shared/TTBLogo';
 import sessionManager from '../utils/sessionManager';
@@ -11,7 +11,6 @@ import UploadPage from './UploadPage';
 import HistoryPage from './HistoryPage';
 
 function ProtectedApp({ userData }) {
-    const location = useLocation();
     const {email, name} = userData;
     if (!email) {
         return (
@@ -79,7 +78,7 @@ function ProtectedApp({ userData }) {
                                         <Button size="sm" variant="outline-dark" > Copy JWT <span role='img' aria-label='key emoji'>🔑</span></Button>
                                     </CopyToClipboard>
                                 </Nav.Item> */}
-                                <Nav.Link href="/logout">Sign out</Nav.Link>
+                                <NavLink to="/logout">Sign out</NavLink>
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>
