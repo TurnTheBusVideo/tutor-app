@@ -46,8 +46,11 @@ function ProtectedApp({ userData }) {
                                 {
                                     sessionManager.isTutor() && (
                                         <>
-                                            <Nav.Link className={location.pathname === '/upload' ? 'active-top-route' : ''} href="/upload">Upload</Nav.Link>
-                                            <Nav.Link className={location.pathname === '/history' ? 'active-top-route' : ''} href="/history">History</Nav.Link>
+                                            {/* <Nav.Link className={location.pathname === '/upload' ? 'active-top-route' : ''} href="/upload">Upload</Nav.Link>
+                                            <Nav.Link className={location.pathname === '/history' ? 'active-top-route' : ''} href="/history">History</Nav.Link> */}
+                                            <NavLink className='top-nav-item' to="/upload">Upload</NavLink>
+                                            <NavLink className='top-nav-item' to="/history">History</NavLink>
+
                                            
                                             {/* <Nav.Item className='nav-link'>
                                                 <NavLink activeClassName="active-top-route" to="/upload" >Upload</NavLink>

@@ -1,3 +1,8 @@
+.top-nav-item.active {
+  color: white;
+  background-color: #1d2257;
+}
+
 #uploadProgressBarCtr {
   text-align : center;
   color      : black;
