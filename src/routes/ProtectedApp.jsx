@@ -46,8 +46,8 @@ function ProtectedApp({ userData }) {
                                 {
                                     sessionManager.isTutor() && (
                                         <>
-                                            <Nav.Link className={location.pathname === 'tutor-app/upload' ? 'active-top-route' : ''} href="/upload">Upload</Nav.Link>
-                                            <Nav.Link className={location.pathname === 'tutor-app/history' ? 'active-top-route' : ''} href="/history">History</Nav.Link>
+                                            <Nav.Link className={location.pathname === '/upload' ? 'active-top-route' : ''} href="/upload">Upload</Nav.Link>
+                                            <Nav.Link className={location.pathname === '/history' ? 'active-top-route' : ''} href="/history">History</Nav.Link>
                                            
                                             {/* <Nav.Item className='nav-link'>
                                                 <NavLink activeClassName="active-top-route" to="/upload" >Upload</NavLink>
@@ -76,7 +76,7 @@ function ProtectedApp({ userData }) {
                                         <Button size="sm" variant="outline-dark" > Copy JWT <span role='img' aria-label='key emoji'>🔑</span></Button>
                                     </CopyToClipboard>
                                 </Nav.Item> */}
-                                <Nav.Link href="tutor-app/logout">Sign out</Nav.Link>
+                                <Nav.Link href="/logout">Sign out</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>

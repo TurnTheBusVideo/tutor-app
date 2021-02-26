@@ -29,6 +29,9 @@ const Routes = () => {
                 <Route exact path="/logout">
                     <Logout afterLogout={setUserData} />
                 </Route>
+                <Route exact path="/">
+                    <Redirect to="/upload" />
+                </Route>
                 <ProtectedRoute path="/*">
                     <ProtectedApp userData={userData} />
                 </ProtectedRoute>
